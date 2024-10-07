@@ -1,0 +1,76 @@
+# Ignore build directories in any subdirectory
+build/
+*/build/
+
+# Ignore CMake build directories
+cmake-build-debug/
+*/cmake-build-debug/
+cmake-build-release/
+*/cmake-build-release/
+CMakeFiles/
+*/CMakeFiles/
+CMakeCache.txt
+*/CMakeCache.txt
+
+# Ignore compiled object files
+*.o
+*.obj
+*.lo
+*.slo
+
+# Ignore compiled dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Ignore compiled static libraries
+*.a
+*.lib
+
+# Ignore executable files
+*.exe
+*.out
+*.app
+
+# Ignore debug files and folders
+*.dSYM/
+*.d/
+*.debug/
+*/.dSYM/
+*/.d/
+*/.debug/
+
+# Ignore generated files
+*.gch
+*.pch
+*.gcno
+*.gcda
+*.gcov
+*.pdb
+*.idb
+*.exp
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+*.orig
+
+# Ignore editor/IDE specific directories (e.g., QtCreator, VSCode, CLion)
+.idea/
+*/.idea/
+.vscode/
+*/.vscode/
+.qtcreator/
+*/.qtcreator/
+
+# Ignore Qt specific generated files
+*.moc
+*.qrc
+*.obj
+*.cpp~
+Makefile
+ui_*.h
+qrc
