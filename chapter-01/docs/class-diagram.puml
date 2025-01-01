@@ -1,0 +1,69 @@
+@startuml
+
+namespace duck {
+
+interface iFlyBehavior {
+  +void fly()
+}
+
+interface iQuackBehavior {
+  +void quack()
+}
+
+class Duck {
+  -std::unique_ptr<iFlyBehavior> m_flyBehavior
+  -std::unique_ptr<iQuackBehavior> m_quackBehavior
+  +void swim()
+  +void display()
+  +void performQuack()
+  +void performFly()
+  +void setFlyBehavior(std::unique_ptr<iFlyBehavior> flyBehavior)
+  +void setQuackBehavior(std::unique_ptr<iQuackBehavior> quackBehavior)
+}
+
+class Quack {
+  +void quack()
+}
+
+class FlyRocketPowered {
+  +void fly()
+}
+
+class MuteQuack {
+  +void quack()
+}
+
+class Squeak {
+  +void quack()
+}
+
+class FlyNoWay {
+  +void fly()
+}
+
+class ModelDuck {
+  +void display()
+}
+
+class MallardDuck {
+  +void display()
+}
+
+class FlyWithWings {
+  +void fly()
+}
+
+Duck <|-- ModelDuck
+Duck <|-- MallardDuck
+Duck o-- iFlyBehavior
+Duck o-- iQuackBehavior
+iFlyBehavior <|.. FlyRocketPowered
+iFlyBehavior <|.. FlyNoWay
+iFlyBehavior <|.. FlyWithWings
+iQuackBehavior <|.. Quack
+iQuackBehavior <|.. MuteQuack
+iQuackBehavior <|.. Squeak
+
+}
+
+@enduml
