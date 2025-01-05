@@ -2,11 +2,7 @@
 
 ## Overview
 
-In this chapter, we explore the Strategy Design Pattern. This pattern is used to define a family of algorithms, encapsulate each one, and make them interchangeable. The strategy pattern allows the algorithm to vary independently from clients that use it.
-
-## Strategy Pattern
-
-The Strategy Pattern is a behavioral design pattern that enables selecting an algorithm's behavior at runtime. It defines a set of algorithms, encapsulates each one, and makes them interchangeable. This pattern allows the client to choose which algorithm to use without altering the client code.
+The Strategy Pattern is one of the **behavioral** design patterns. It defines a family of algorithms, encapsulates each one, and makes them interchangeable. This allows the algorithm to vary independently from the clients that use it. Essentially, it enables you to select algorithms at runtime.
 
 ## Key Components
 
