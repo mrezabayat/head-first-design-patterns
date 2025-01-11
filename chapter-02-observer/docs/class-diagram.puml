@@ -1,0 +1,72 @@
+@startuml
+
+namespace ws {
+
+interface IObserver {
+  +void update(double temperature, double humidity, double pressure)
+}
+
+interface ISubject {
+  +void registerObserver(std::shared_ptr<IObserver> observer)
+  +void removeObserver(std::shared_ptr<IObserver> observer)
+  +void notifyObservers()
+}
+
+interface IDisplayElement {
+  +void display()
+}
+
+class WeatherData {
+  +void registerObserver(std::shared_ptr<IObserver> observer)
+  +void removeObserver(std::shared_ptr<IObserver> observer)
+  +void notifyObservers()
+  +void setMeasurements(double temperature, double humidity, double pressure)
+  -std::list<std::shared_ptr<IObserver>> observers
+  -double m_temperature
+  -double m_humidity
+  -double m_pressure
+}
+
+class CurrentConditionDisplay {
+  +void update(double temperature, double humidity, double pressure)
+  +void display()
+  -double m_temperature
+  -double m_humidity
+  -double m_pressure
+}
+
+class StatisticsDisplay {
+  +void update(double temperature, double humidity, double pressure)
+  +void display()
+  -int m_numberOfReadings
+  -double m_maxTemperature
+  -double m_minTemperature
+  -double m_avgTemperature
+}
+
+class ForcastDisplay {
+  +void update(double temperature, double humidity, double pressure)
+  +void display()
+  -double m_currentPressure
+  -double m_lastPressure
+}
+
+WeatherData -> CurrentConditionDisplay : <<subject>>
+WeatherData -> StatisticsDisplay : <<subject>>
+WeatherData -> ForcastDisplay : <<subject>>
+
+IObserver <|.. CurrentConditionDisplay
+IObserver <|.. StatisticsDisplay
+IObserver <|.. ForcastDisplay
+
+
+ISubject <|-- WeatherData
+ISubject -> IObserver : <<observers>>
+
+IDisplayElement <|.. CurrentConditionDisplay
+IDisplayElement <|.. StatisticsDisplay
+IDisplayElement <|.. ForcastDisplay
+
+}
+
+@enduml
