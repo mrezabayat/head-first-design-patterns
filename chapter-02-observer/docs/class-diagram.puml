@@ -51,9 +51,9 @@ class ForcastDisplay {
   -double m_lastPressure
 }
 
-WeatherData -> CurrentConditionDisplay : <<subject>>
-WeatherData -> StatisticsDisplay : <<subject>>
-WeatherData -> ForcastDisplay : <<subject>>
+WeatherData -down-> CurrentConditionDisplay : <<subject>>
+WeatherData -down-> StatisticsDisplay : <<subject>>
+WeatherData -down-> ForcastDisplay : <<subject>>
 
 IObserver <|.. CurrentConditionDisplay
 IObserver <|.. StatisticsDisplay
