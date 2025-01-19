@@ -1,0 +1,57 @@
+@startuml
+
+namespace sb {
+
+interface Beverage {
+  +{abstract} std::string GetDescription() const
+  +{abstract} double GetCost() const
+}
+
+class Espresso {
+  +std::string GetDescription() const
+  +double GetCost() const
+}
+
+class DarkRoast {
+  +std::string GetDescription() const
+  +double GetCost() const
+}
+
+class HouseBlend {
+  +std::string GetDescription() const
+  +double GetCost() const
+}
+
+class ICondimentDecorator {
+  +std::string GetDescription() const
+  +double GetCost() const
+  protected std::shared_ptr<Beverage> m_beverage
+}
+
+class Mocha {
+  +std::string GetDescription() const
+  +double GetCost() const
+}
+
+class Milk {
+  +std::string GetDescription() const
+  +double GetCost() const
+}
+
+class Soya {
+  +std::string GetDescription() const
+  +double GetCost() const
+}
+
+Beverage <|-- Espresso
+Beverage <|-- DarkRoast
+Beverage <|-- HouseBlend
+
+Beverage <|-- ICondimentDecorator
+ICondimentDecorator <|-- Mocha
+ICondimentDecorator <|-- Milk
+ICondimentDecorator <|-- Soya
+
+}
+
+@enduml
