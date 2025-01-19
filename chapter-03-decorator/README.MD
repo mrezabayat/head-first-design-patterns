@@ -41,7 +41,7 @@ In this example, we implement a simple coffee shop application that uses the Dec
 
 Below is the class diagram for the Coffee Shop example:
 
-![class-diagram](docs/class-diagram.puml)
+![class-diagram](docs/class-diagram.png)
 
 Here is a 
 
