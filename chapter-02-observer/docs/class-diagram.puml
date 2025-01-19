@@ -3,17 +3,17 @@
 namespace ws {
 
 interface IObserver {
-  +void update(double temperature, double humidity, double pressure)
+  +{abstract} void update(double temperature, double humidity, double pressure)
 }
 
 interface ISubject {
-  +void registerObserver(std::shared_ptr<IObserver> observer)
-  +void removeObserver(std::shared_ptr<IObserver> observer)
-  +void notifyObservers()
+  +{abstract} void registerObserver(std::shared_ptr<IObserver> observer)
+  +{abstract} void removeObserver(std::shared_ptr<IObserver> observer)
+  +{abstract} void notifyObservers()
 }
 
 interface IDisplayElement {
-  +void display()
+  +{abstract} void display()
 }
 
 class WeatherData {

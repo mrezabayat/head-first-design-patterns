@@ -3,11 +3,11 @@
 namespace duck {
 
 interface iFlyBehavior {
-  +void fly()
+  +{abstract} void fly()
 }
 
 interface iQuackBehavior {
-  +void quack()
+  +{abstract} void quack()
 }
 
 class Duck {
