@@ -15,7 +15,7 @@ public:
   Squeak &operator=(const Squeak &&) = delete;
   ~Squeak() override = default;
 
-  void quack() override { std::cout << "I say Squeak.\n"; }
+  void quack() const override { std::cout << "I say Squeak.\n"; }
 };
 
 } // namespace duck

@@ -15,7 +15,7 @@ public:
   MuteQuack &operator=(const MuteQuack &&) = delete;
   ~MuteQuack() override = default;
 
-  void quack() override { std::cout << "I say nothing.\n"; }
+  void quack() const override { std::cout << "I say nothing.\n"; }
 };
 
 } // namespace duck

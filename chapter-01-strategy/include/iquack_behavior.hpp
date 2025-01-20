@@ -10,7 +10,7 @@ public:
   iQuackBehavior &operator=(const iQuackBehavior &) = delete;
   iQuackBehavior &operator=(iQuackBehavior &&) = delete;
 
-  virtual void quack() = 0;
+  virtual void quack() const = 0;
 
 protected:
   iQuackBehavior() = default;

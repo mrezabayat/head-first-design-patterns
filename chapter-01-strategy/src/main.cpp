@@ -14,7 +14,8 @@ int main() {
     modelDuck.performFly();
     modelDuck.performQuack();
     modelDuck.swim();
-    modelDuck.setFlyBehavior(std::make_unique<duck::FlyRocketPowered>());
+    auto rocketPoweredFly = std::make_unique<duck::FlyRocketPowered>();
+    modelDuck.setFlyBehavior(std::move(rocketPoweredFly));
     modelDuck.performFly();
     return 0; 
 }

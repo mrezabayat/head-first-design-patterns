@@ -1,0 +1,229 @@
+@startuml
+
+
+
+interface PizzaIngredientFactory {
+  + createDough(): Dough
+  + createSauce(): Sauce
+  + createCheese(): Cheese
+  + createVeggies(): Veggies[]
+  + createPepperoni(): Pepperoni
+  + createClam(): Clams
+}
+
+class ChicagoPizzaIngredientFactory {
+  + createDough(): Dough
+  + createSauce(): Sauce
+  + createCheese(): Cheese
+  + createVeggies(): Veggies[]
+  + createPepperoni(): Pepperoni
+  + createClam(): Clams
+}
+
+class NYPizzaIngredientFactory {
+  + createDough(): Dough
+  + createSauce(): Sauce
+  + createCheese(): Cheese
+  + createVeggies(): Veggies[]
+  + createPepperoni(): Pepperoni
+  + createClam(): Clams
+}
+
+interface Dough {
+  + toString(): String
+}
+
+class ThickCrustDough {
+  + toString(): String
+}
+
+class ThinCrustDough {
+  + toString(): String
+}
+
+interface Sauce {
+  + toString(): String
+}
+
+class PlumTomatoSauce {
+  + toString(): String
+}
+
+class MarinaraSauce {
+  + toString(): String
+}
+
+interface Cheese {
+  + toString(): String
+}
+
+class MozzarellaCheese {
+  + toString(): String
+}
+
+class ReggianoCheese {
+  + toString(): String
+}
+
+class ParmesanCheese {
+  + toString(): String
+}
+
+interface Veggies {
+  + toString(): String
+}
+
+class BlackOlives {
+  + toString(): String
+}
+
+class Garlic {
+  + toString(): String
+}
+
+class RedPepper {
+  + toString(): String
+}
+
+class Spinach {
+  + toString(): String
+}
+
+class Eggplant {
+  + toString(): String
+}
+
+class Onion {
+  + toString(): String
+}
+
+class Mushroom {
+  + toString(): String
+}
+
+interface Pepperoni {
+  + toString(): String
+}
+
+class SlicedPepperoni {
+  + toString(): String
+}
+
+interface Clams {
+  + toString(): String
+}
+
+class FreshClams {
+  + toString(): String
+}
+
+class FrozenClams {
+  + toString(): String
+}
+
+abstract class Pizza {
+  - name: String
+  - dough: Dough
+  - sauce: Sauce
+  - veggies: Veggies[]
+  - cheese: Cheese
+  - pepperoni: Pepperoni
+  - clam: Clams
+
+  + prepare()
+  + bake()
+  + cut()
+  + box()
+  + setName(name: String)
+  + getName(): String
+  + toString(): String
+}
+
+class CheesePizza {
+  - ingredientFactory: PizzaIngredientFactory
+  + prepare()
+}
+
+class VeggiePizza {
+  - ingredientFactory: PizzaIngredientFactory
+  + prepare()
+}
+
+class ClamPizza {
+  - ingredientFactory: PizzaIngredientFactory
+  + prepare()
+}
+
+class PepperoniPizza {
+  - ingredientFactory: PizzaIngredientFactory
+  + prepare()
+}
+
+abstract class PizzaStore {
+  + orderPizza(type: String): Pizza
+  # createPizza(item: String): Pizza
+}
+
+class NYPizzaStore {
+  + createPizza(item: String): Pizza
+}
+
+class ChicagoPizzaStore {
+  + createPizza(item: String): Pizza
+}
+
+class PizzaTestDrive {
+  + main(args: String[])
+}
+
+PizzaIngredientFactory <|.. ChicagoPizzaIngredientFactory
+PizzaIngredientFactory <|.. NYPizzaIngredientFactory
+
+Dough <|.. ThickCrustDough
+Dough <|.. ThinCrustDough
+
+Sauce <|.. PlumTomatoSauce
+Sauce <|.. MarinaraSauce
+
+Cheese <|.. MozzarellaCheese
+Cheese <|.. ReggianoCheese
+Cheese <|.. ParmesanCheese
+
+Veggies <|.. BlackOlives
+Veggies <|.. Garlic
+Veggies <|.. RedPepper
+Veggies <|.. Spinach
+Veggies <|.. Eggplant
+Veggies <|.. Onion
+Veggies <|.. Mushroom
+
+Pepperoni <|.. SlicedPepperoni
+
+Clams <|.. FreshClams
+Clams <|.. FrozenClams
+
+Pizza <|-- CheesePizza
+Pizza <|-- VeggiePizza
+Pizza <|-- ClamPizza
+Pizza <|-- PepperoniPizza
+
+PizzaStore <|-- NYPizzaStore
+PizzaStore <|-- ChicagoPizzaStore
+
+PizzaTestDrive --> NYPizzaStore
+PizzaTestDrive --> ChicagoPizzaStore
+
+CheesePizza --> PizzaIngredientFactory
+VeggiePizza --> PizzaIngredientFactory
+ClamPizza --> PizzaIngredientFactory
+PepperoniPizza --> PizzaIngredientFactory
+
+Pizza --> Dough
+Pizza --> Sauce
+Pizza --> Cheese
+Pizza --> Veggies
+Pizza --> Pepperoni
+Pizza --> Clams
+
+
+@enduml

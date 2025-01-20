@@ -15,7 +15,7 @@ public:
   Quack &operator=(Quack &&) = delete;
   ~Quack() override = default;
 
-  void quack() override { std::cout << "I say Quack.\n"; }
+  void quack() const override { std::cout << "I say Quack.\n"; }
 };
 
 } // namespace duck

@@ -18,7 +18,8 @@ public:
   ~MallardDuck() override = default;
   MallardDuck(const MallardDuck&) = delete;
 
-  void display() override { std::cout << "I'm a mallard duck.\n"; }
+  void display() const override { std::cout << "I'm a mallard duck.\n"; }
+  
 };
 
 } // namespace duck

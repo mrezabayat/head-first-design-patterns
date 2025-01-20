@@ -15,7 +15,7 @@ public:
   }
   ~ModelDuck() override = default;
 
-  void display() override { std::cout << "I'm a model duck.\n"; }
+  void display() const override { std::cout << "I'm a model duck.\n"; }
 };
 
 } // namespace duck

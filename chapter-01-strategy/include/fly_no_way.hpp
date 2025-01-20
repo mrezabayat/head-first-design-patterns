@@ -12,7 +12,7 @@ public:
   FlyNoWay(const FlyNoWay &) = delete;
   FlyNoWay(FlyNoWay &&) = delete;
   FlyNoWay &operator=(const FlyNoWay &) = delete;
-  FlyNoWay &operator=(const FlyNoWay &&) = delete;
+  FlyNoWay &operator=(FlyNoWay &&) = delete;
   ~FlyNoWay() override = default;
 
   void fly() override { std::cout << "I cannot fly.\n"; }
